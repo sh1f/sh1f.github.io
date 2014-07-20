@@ -5,7 +5,7 @@ angular.module( 'app', ['ngRoute'] )
     when( '/:postSlug',
     {
         controller: 'PostCtrl',
-        template: '{{post.contents}}'
+        template: '<div ng-bind-html="post.contents"></data>'
     });
 })
 .service( 'PostService', function( $http )
