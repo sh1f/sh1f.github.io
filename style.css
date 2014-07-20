@@ -9,9 +9,9 @@ html
     color: #777;
 }
 
-body
+section
 {
-    width: 900px;
+    width: 700px;
     margin: 0 auto;
 }
 
@@ -23,4 +23,11 @@ h1, h2
     color: #444;
     margin-bottom: 0;
     line-height: 1;
+}
+
+header > h1
+{
+    background: #289a8f;
+    color: #cff2ef;
+    text-transform: uppercase;
 }
