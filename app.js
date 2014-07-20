@@ -43,6 +43,7 @@ angular.module( 'app', ['ng-route'] )
 {
     PostService.getPost( $routeParams.postSlug, function( post )
     {
+        alert( "hi" );
         $scope.post = post;
     });
 });
