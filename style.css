@@ -33,13 +33,13 @@ header
     padding:1.5em 0 1em 0;
     text-align: center;
     background: #444;
-    color: #ddd;
+    color: #fff;
 }
 
 header > h1
 {
     font-size: 2em;
-    color: #ddd;
+    color: #fff;
     margin-top: 0;
     text-transform: uppercase;
 }
