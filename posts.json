@@ -2,7 +2,11 @@
     "test-post":
     {
         "title": "Test Post",
-        "date": "July 20, 2014",
-        "tags": [ "post", "test" ]
+        "date": "July 20, 2014"
+    },
+    "markdown-test":
+    {
+        "title": "Markdown Test Page Thingy",
+        "date": "July 20, 2014"
     }
 }
