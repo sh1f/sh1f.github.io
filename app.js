@@ -4,7 +4,8 @@ angular.module( 'app', ['ngRoute'] )
     $routeProvider.
     when( '/:postSlug',
     {
-        controller: 'PostCtrl'
+        controller: 'PostCtrl',
+        template: '{{post.contents}}'
     });
 })
 .service( 'PostService', function( $http )
