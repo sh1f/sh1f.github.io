@@ -5,7 +5,7 @@ angular.module( 'app', ['ngRoute'] )
     when( '/:postSlug',
     {
         controller: 'PostCtrl',
-        template: '<article><header><h1>{{post.title}}</h1><p>{{post.date}}</p><section ng-bind-html="post.contents"></section></article>'
+        template: '<article><header><h1>{{post.title}}</h1><p>{{post.date}}</p></header><section ng-bind-html="post.contents"></section></article>'
     });
 })
 .service( 'PostService', function( $http )
