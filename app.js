@@ -20,7 +20,7 @@ angular.module( 'app', ['ngRoute'] )
 
                 posts[ postSlug ].contents = contentHtml;
 
-                callback( that.posts[ postSlug ] );
+                callback( posts[ postSlug ] );
             });
         });
     }
