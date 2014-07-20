@@ -8,51 +8,27 @@ angular.module( 'app', ['ngRoute'] )
         template: '<div ng-bind-html-unsafe="post.contents"></div>'
     });
 })
-.filter( 'unsafe', function( $sce )
-{
-    return function( val ) {
-        return $sce.trustAsHtml( val );
-    };
-})
 .service( 'PostService', function( $http )
 {
-    this.posts = undefined;
-    var that = this;
-
-
-    this.getPosts = function()
-    {
-        if( typeof this.posts === 'undefined' )
-        {
-            $http.get( 'posts.json' ).success( function( data )
-            {
-                that.posts = data;
-            });
-        }
-
-        return this.posts;
-    };
-
-
     this.getPost = function( postSlug, callback )
     {
-        this.getPosts();
-
-        $http.get( '/posts/' + postSlug + '.mkd').success( function( data )
+        $http.get( 'posts.json').success( function( posts )
         {
-            var contentHtml = new Showdown.converter().makeHtml( data );
+            $http.get( '/posts/' + postSlug + '.mkd').success( function( content )
+            {
+                var contentHtml = new Showdown.converter().makeHtml( content );
 
-            that.posts[ postSlug ].contents = contentHtml;
+                posts[ postSlug ].contents = contentHtml;
 
-            callback( that.posts[ postSlug ] );
+                callback( that.posts[ postSlug ] );
+            });
         });
     }
 })
 .controller( 'PostCtrl', function( $scope, $routeParams, PostService )
 {
-    PostService.getPost( 'test-post', function( post )
+    PostService.getPost( $routeParams.postSlug, function( post )
     {
         $scope.post = post;
-
     });
 });
