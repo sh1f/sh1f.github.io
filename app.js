@@ -32,5 +32,6 @@ angular.module( 'app', ['ngRoute'] )
     PostService.getPost( $routeParams.postSlug, function( post )
     {
         $scope.post = post;
+        $scope.$apply();
     });
 });
