@@ -1,0 +1,8 @@
+{
+    "test-post":
+    {
+        "title": "Test Post",
+        "date": "July 20, 2014",
+        "tags": [ "post", "test" ]
+    }
+}
