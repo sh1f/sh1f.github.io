@@ -12,9 +12,11 @@ angular.module( 'app', ['ngRoute'] )
 {
     this.getPost = function( postSlug, callback )
     {
-        $http.get( 'posts.json').success( function( posts )
+        $http.get( 'posts.json' )
+        .success( function( posts )
         {
-            $http.get( '/posts/' + postSlug + '.mkd').success( function( content )
+            $http.get( '/posts/' + postSlug + '.mkd' )
+            .success( function( content )
             {
                 var contentHtml = new Showdown.converter().makeHtml( content );
 
