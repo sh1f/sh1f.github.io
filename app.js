@@ -5,7 +5,7 @@ angular.module( 'app', ['ngRoute'] )
     when( '/:postSlug',
     {
         controller: 'PostCtrl',
-        template: '<div ng-bind-html-unsafe="post.contents"></div>'
+        template: '{{test}}<div ng-bind-html-unsafe="post.contents"></div>'
     });
 })
 .service( 'PostService', function( $http )
@@ -29,6 +29,7 @@ angular.module( 'app', ['ngRoute'] )
 })
 .controller( 'PostCtrl', function( $scope, $routeParams, PostService )
 {
+    $scope.test = 'holla';
     $scope.post = {contents:''};
 
     PostService.getPost( $routeParams.postSlug, function( post )
