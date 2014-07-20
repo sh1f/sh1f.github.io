@@ -41,7 +41,7 @@ angular.module( 'app', ['ngRoute'] )
 })
 .controller( 'PostCtrl', function( $scope, $routeParams, PostService )
 {
-    PostService.getPost( 'test-post', function( post )
+    PostService.getPost( $routeParams.postSlug, function( post )
     {
         alert( "hi" );
         $scope.post = post;
