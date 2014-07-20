@@ -5,8 +5,14 @@ angular.module( 'app', ['ngRoute'] )
     when( '/:postSlug',
     {
         controller: 'PostCtrl',
-        template: '<div ng-bind-html="post.contents"></data>'
+        template: '<div ng-bind-html-unsafe="post.contents"></div>'
     });
+})
+.filter( 'unsafe', function( $sce )
+{
+    return function( val ) {
+        return $sce.trustAsHtml( val );
+    };
 })
 .service( 'PostService', function( $http )
 {
@@ -47,5 +53,6 @@ angular.module( 'app', ['ngRoute'] )
     PostService.getPost( $routeParams.postSlug, function( post )
     {
         $scope.post = post;
+
     });
 });
