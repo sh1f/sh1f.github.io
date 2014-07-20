@@ -10,6 +10,7 @@ angular.module( 'app' )
 .service( 'PostService', function( $http )
 {
     this.posts = undefined;
+    var that = this;
 
 
     this.getPosts = function()
@@ -18,7 +19,7 @@ angular.module( 'app' )
         {
             $http.get( 'posts.json' ).success( function( data )
             {
-                this.posts = data;
+                that.posts = data;
             });
         }
 
@@ -32,7 +33,7 @@ angular.module( 'app' )
 
         $http.get( '/posts/' + postSlug + '.mkd').success( function( data )
         {
-            this.posts[ postSlug ].contents = data;
+            that.posts[ postSlug ].contents = data;
         });
 
         return this.posts[ postSlug ];
