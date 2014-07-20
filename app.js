@@ -29,6 +29,8 @@ angular.module( 'app', ['ngRoute'] )
 })
 .controller( 'PostCtrl', function( $scope, $routeParams, PostService )
 {
+    $scope.post = {contents:''};
+
     PostService.getPost( $routeParams.postSlug, function( post )
     {
         $scope.post = post;
