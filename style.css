@@ -32,12 +32,13 @@ header
     margin:0;
     padding:0;
     text-align: center;
-    background: #289a8f;
-    color: #cff2ef;
+    background: #444;
+    color: #ddd;
 }
 
 header > h1
 {
+    color: #ddd;
     margin-top: 0;
     text-transform: uppercase;
 }
