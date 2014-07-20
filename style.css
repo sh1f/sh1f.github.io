@@ -25,9 +25,13 @@ h1, h2
     line-height: 1;
 }
 
-header > h1
+header
 {
     background: #289a8f;
     color: #cff2ef;
+}
+
+header > h1
+{
     text-transform: uppercase;
 }
