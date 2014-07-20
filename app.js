@@ -27,19 +27,22 @@ angular.module( 'app', ['ng-route'] )
     };
 
 
-    this.getPost = function( postSlug )
+    this.getPost = function( postSlug, callback )
     {
         this.getPosts();
 
         $http.get( '/posts/' + postSlug + '.mkd').success( function( data )
         {
             that.posts[ postSlug ].contents = data;
-        });
 
-        return this.posts[ postSlug ];
+            callback( that.posts[ postSlug ] );
+        });
     }
 })
 .controller( 'PostCtrl', function( $scope, $routeParams, PostService )
 {
-    $scope.post = PostService.getPost( $routeParams.postSlug );
+    PostService.getPost( $routeParams.postSlug, function( post )
+    {
+        $scope.post = post;
+    });
 });
