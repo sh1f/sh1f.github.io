@@ -34,7 +34,9 @@ angular.module( 'app', ['ngRoute'] )
 
         $http.get( '/posts/' + postSlug + '.mkd').success( function( data )
         {
-            that.posts[ postSlug ].contents = data;
+            var contentHtml = new Showdown.converter().makeHtml( data );
+
+            that.posts[ postSlug ].contents = contentHtml;
 
             callback( that.posts[ postSlug ] );
         });
@@ -44,7 +46,6 @@ angular.module( 'app', ['ngRoute'] )
 {
     PostService.getPost( $routeParams.postSlug, function( post )
     {
-        alert( "hi" );
         $scope.post = post;
     });
 });
